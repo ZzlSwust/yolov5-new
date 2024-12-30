@@ -491,6 +491,7 @@ def train(hyp, opt, device, callbacks):
                 }
 
                 # Save last, best and delete
+                torch.save(ema.ema.model.half().state_dict(),'result.pt')          # Save last, best and delete
                 torch.save(ckpt, last)
                 if best_fitness == fi:
                     torch.save(ckpt, best)
